@@ -1,0 +1,132 @@
+
+Create a small application that uses a partial view to display data in a consistent manner.
+===========================================================
+Products.cs(model)
+--------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Partial_ViewsExample.Models
+{
+    public class Product
+    {
+        public int ProductId { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Photo { get; set; }
+    }
+}
+
+ProductsController.cs(controller)
+-------------------------------------------
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Partial_ViewsExample.Controllers;
+using System.Windows;
+using System.Diagnostics;
+using Partial_ViewsExample.Models;
+
+namespace Partial_ViewsExample.Controllers
+{
+    
+    public class ProductsController : Controller
+    {
+        List<Product> products = new List<Product>()
+    {
+        new Product {ProductId= 1, Name= "Television", Price=1000.00,Photo="~/Images/tv.jpg"},
+        new Product {ProductId= 2, Name= "Mobile", Price=2000.00,Photo="~/Images/Mobile.jpg"},
+        new Product {ProductId= 3, Name= "Bike", Price=3000.00,Photo="~/Images/Bike.jpg"},
+        new Product {ProductId= 4, Name= "Shoew", Price=5000.00,Photo="~/Images/Shoew.jpg"},
+        new Product {ProductId= 5, Name= "teddy", Price=6000.00,Photo="~/Images/teddy.jpg"},
+
+    };
+        public PartialViewResult Prototype()
+        {
+            return PartialView();
+        }
+
+        public IActionResult Index()
+        {
+            return View(products);
+        }
+    }
+}
+
+Add Parial View(click on it)
+---------------------------------------
+ProtpType.cshtml
+-----------------------
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Partial_ViewsExample.Models.Product
+<table width="200" border="2" align="center">
+    <tr>
+        <td>
+            <img src='@Url.Content(Model.Photo)' height="200"width="200"/>
+        </td>
+        <td>
+            <table frame="box" align="center" rules="all">
+                <tr>
+                    <td>ProductId</td>
+                    <td>@Model.ProductId</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>@Model.Price</td>
+                </tr>
+
+
+            </table>
+        </td>
+    </tr>
+
+</table>
+
+Add view to Iaction Result:(click on it)
+------------------------------------------
+Index.cshtml [Note Unselect Parial View]
+------------------------------------------------------
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Partial_ViewsExample.Models.Product
+<table width="200" border="2" align="center">
+    <tr>
+        <td>
+            <img src='@Url.Content(Model.Photo)' height="200"width="200"/>
+        </td>
+        <td>
+            <table frame="box" align="center" rules="all">
+                <tr>
+                    <td>ProductId</td>
+                    <td>@Model.ProductId</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>@Model.Price</td>
+                </tr>
+
+
+            </table>
+        </td>
+    </tr>
+
+</table>
+
+Note: Please add Image folder and paste realvant images in that folder

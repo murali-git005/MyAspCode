@@ -1,0 +1,71 @@
+Steps for submit the files  or code using GitHub.
+======================================
+Step 1:
+=====
+=> create a git account
+=>click on " +" symbol take NEW REPOSITORY
+=>give thwe REPOSITORY NAME
+=>give some DESCRIPTION(optional)
+=> Finally CREATE REPOPSITORY
+=>
+Step 2:
+======
+Open the  Terminal(git bash)
+
+Step3:
+======
+Set your Local Project as the current working Directory.
+ commands 
+--------------
+- pwd
+/users/murali
+cd /users/murali/documents/muraligitacc
+ls
+Step 4:
+========
+Initilise the Local Directory as a Git Repository.
+ commands 
+---------------
+ git init
+
+Step 5:
+======
+Add the files in your new Local Repository.
+Your files will be now be staged for their commit.
+ commands 
+---------------
+ git add.
+git status
+
+Step6:
+======
+Commit the files that you have staged in your Local Repository.
+commands 
+---------------
+git commit -m "first commit"
+
+Step 7:
+======
+Copy the remote repository's URL.
+ssh: https/github.com/murali/muraligitacc.git
+
+Step 8:
+========
+Add the URL for the remore reposirory where your Local
+Repository will be pushed.
+
+git remore add origin https/github.com/murali/muraligitacc.git
+
+Step 9:
+=====
+Push the Code in your local repository to Github.
+
+git push -u origin master
+
+Set your user Name and Password:
+
+Step 10:
+=======
+FinallyView your files  or Code in your Repository
+
+
